@@ -3,7 +3,7 @@
         Genre: 2D Fighter
         Platform(s): PC
         Target Audience: Fighter players
-        Core Concept / Elevator Pitch: Fight it out in a free for brawl! Characters from franchises across the cosmos have all come together in this pixelated beat-em-up! Fight against friends to see who is the true (reference to title here)
+        Core Concept / Elevator Pitch: Fight it out in a free for brawl! Characters from franchises across the Multiverse have all come together in this pixelated beat-em-up! Fight against friends to see who is the true (reference to title here)
 
     Game Mechanics
         Core Gameplay Loop (what players do repeatedly): Fight against players or bots. It's Smash
