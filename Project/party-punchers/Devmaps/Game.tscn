@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp61jftgxt6l5"]
+[gd_scene load_steps=5 format=3 uid="uid://cp61jftgxt6l5"]
 
 [ext_resource type="PackedScene" uid="uid://d0cdhjkpq5xgi" path="res://Entities/Player 1.tscn" id="1_ch3k4"]
 [ext_resource type="PackedScene" uid="uid://lnn6fpgy5dkm" path="res://Devmaps/Test field.tscn" id="1_gmuh0"]
-[ext_resource type="PackedScene" uid="uid://dgc20ptgy7a0b" path="res://Entities/Dummy.tscn" id="3_sqsyl"]
+[ext_resource type="PackedScene" uid="uid://bqs5ov7w7fmm4" path="res://Entities/Dummy.tscn" id="3_sqsyl"]
+[ext_resource type="PackedScene" uid="uid://b2r0no7ya2a68" path="res://Entities/testplayer.tscn" id="4_r6f3f"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_gmuh0")]
 
 [node name="Player" parent="." instance=ExtResource("1_ch3k4")]
-position = Vector2(240, 380)
+visible = false
+position = Vector2(31, 428)
 
 [node name="NPC" parent="." instance=ExtResource("3_sqsyl")]
 position = Vector2(883, 363)
+
+[node name="Testplayer" parent="." instance=ExtResource("4_r6f3f")]
+position = Vector2(249, 380)

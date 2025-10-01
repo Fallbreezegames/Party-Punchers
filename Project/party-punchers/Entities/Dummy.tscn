@@ -1,10 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgc20ptgy7a0b"]
+[gd_scene load_steps=12 format=3 uid="uid://bqs5ov7w7fmm4"]
 
+[ext_resource type="Script" path="res://Entities/dummy.gd" id="1_3xuum"]
 [ext_resource type="Texture2D" uid="uid://cis2xpx6aqkne" path="res://assets/Custom/Neutral.png" id="1_stvk0"]
 [ext_resource type="Texture2D" uid="uid://cj2itkj1tpveb" path="res://assets/Custom/Neutral_2.png" id="2_xie5e"]
+[ext_resource type="Texture2D" uid="uid://kesyr518rvo3" path="res://assets/Custom/Happy.png" id="3_aavaf"]
+[ext_resource type="Texture2D" uid="uid://cq6nxv5fk2vkb" path="res://assets/Custom/Angy.png" id="4_xbfeb"]
+[ext_resource type="Texture2D" uid="uid://b6wk4kx3ca3lq" path="res://assets/Custom/Disgust.png" id="5_45bmc"]
+[ext_resource type="Texture2D" uid="uid://k88lsqgm4dh7" path="res://assets/Custom/Fear.png" id="6_05qaa"]
+[ext_resource type="Texture2D" uid="uid://bm7yl7sut78cn" path="res://assets/Custom/Sad.png" id="7_p87hg"]
+[ext_resource type="Script" uid="uid://c3t6dttxqfvlq" path="res://Scripts/Hurtbox.gd" id="9_hrs8g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4d4dc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_stvk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aavaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xbfeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_45bmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_05qaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p87hg")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_stvk0")
@@ -17,19 +47,24 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_61r12"]
-size = Vector2(30, 44)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmv7b"]
+radius = 13.0
+height = 40.0
 
 [node name="NPC" type="Node2D"]
+script = ExtResource("1_3xuum")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4d4dc")
-animation = &"Idle"
+animation = &"Hit"
 autoplay = "Idle"
-frame_progress = 0.48009175
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-3, 5)
-shape = SubResource("RectangleShape2D_61r12")
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("9_hrs8g")
+metadata/_custom_type_script = "uid://c3t6dttxqfvlq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-3, 6)
+shape = SubResource("CapsuleShape2D_kmv7b")

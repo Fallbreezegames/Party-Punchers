@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://brttb3mm8buuc"]
+
+[ext_resource type="Script" uid="uid://c8nbrjhoaa73n" path="res://Scripts/sir_cluck.gd" id="1_p0voa"]
+[ext_resource type="Texture2D" uid="uid://bex7oq4kuw7mw" path="res://assets/tilesets/Sprout Lands/Characters/Free Cow Sprites.png" id="2_p0voa"]
+[ext_resource type="Script" uid="uid://s5ddq4v0qouu" path="res://Scripts/Hitbox.gd" id="3_7yqr1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_upbr4"]
+radius = 13.0
+height = 28.0
+
+[sub_resource type="Animation" id="Animation_7yqr1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6bj3g"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xog8q"]
+_data = {
+&"Idle": SubResource("Animation_6bj3g"),
+&"RESET": SubResource("Animation_7yqr1")
+}
+
+[node name="Testplayer" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_p0voa")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -5)
+texture = ExtResource("2_p0voa")
+hframes = 3
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_upbr4")
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("3_7yqr1")
+metadata/_custom_type_script = "uid://s5ddq4v0qouu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_xog8q")
+}
+autoplay = "Idle"

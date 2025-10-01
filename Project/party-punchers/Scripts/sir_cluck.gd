@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed = 150  # How fast the player will move (pixels/sec)
 var is_moving = true  # To handle the movement
 @export var health = 100  # For health
-@export var mana = 100  # For mana
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -15,6 +14,8 @@ func _physics_process(_delta):
 			velocity.x += 1
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= 1
+		if Input.is_action_pressed("light_attack"):
+			$AnimatedSprite2D.animation = "Attack"
 
 		# Normalize the velocity to avoid faster diagonal movement
 		if velocity.length() > 0:
