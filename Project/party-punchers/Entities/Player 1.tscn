@@ -1,3 +1,64 @@
-[gd_scene format=3 uid="uid://d0cdhjkpq5xgi"]
+[gd_scene load_steps=9 format=3 uid="uid://d0cdhjkpq5xgi"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://c8nbrjhoaa73n" path="res://Scripts/sir_cluck.gd" id="1_6rxl4"]
+[ext_resource type="Texture2D" uid="uid://c14ndk6fngw50" path="res://assets/tilesets/Cute_Fantasy/Animals/Chicken/Chicken.png" id="1_hj5lr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rxl4"]
+atlas = ExtResource("1_hj5lr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syh6p"]
+atlas = ExtResource("1_hj5lr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by6c5"]
+atlas = ExtResource("1_hj5lr")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu8md"]
+atlas = ExtResource("1_hj5lr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggj53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rxl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syh6p")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by6c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu8md")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8awa"]
+size = Vector2(16, 14)
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6rxl4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visibility_layer = 2
+sprite_frames = SubResource("SpriteFrames_ggj53")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.4975812
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_c8awa")
+debug_color = Color(0.74164355, 0.46521628, 0.055692196, 0.41960785)

@@ -50,6 +50,13 @@
         Ads (if relevant): NO.
 
     Project Timeline and Milestones
-        Development Phases
+        Development Phases:
+            Basic structure
+            Health and Damage
+            UI/HUD
+            More advanced movement
+            Characters
+            Attack abilities
+
         Testing Phases
         Expected Launch Date

@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://dgc20ptgy7a0b"]
+[gd_scene load_steps=5 format=3 uid="uid://dgc20ptgy7a0b"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://cis2xpx6aqkne" path="res://assets/Custom/Neutral.png" id="1_stvk0"]
+[ext_resource type="Texture2D" uid="uid://cj2itkj1tpveb" path="res://assets/Custom/Neutral_2.png" id="2_xie5e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4d4dc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_stvk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xie5e")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61r12"]
+size = Vector2(30, 44)
+
+[node name="NPC" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_4d4dc")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.48009175
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-3, 5)
+shape = SubResource("RectangleShape2D_61r12")
