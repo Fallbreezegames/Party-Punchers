@@ -1,5 +1,5 @@
     Game Overview
-        Title: TBD
+        Title: Party Punchers (Impact)
         Genre: 2D Fighter
         Platform(s): PC
         Target Audience: Fighter players
@@ -13,7 +13,7 @@
 
     Story and World
         Setting and Backstory: Not fleshed out, something something wormhole something something invites something something bleh
-        Main Characters: Currently Kyojuro Rengoku(KNY), Tanjiro Kamado(KNY), Pioneer(STF), Paper Mario (PRM), Lamb(CTL), Scrooge/Darkwing(DKT), Bumblebee(TSF) list will go on
+        Main Characters: Currently Kyojuro Rengoku(KNY), Tanjiro Kamado(KNY), Pioneer(STF), Lamb(CTL), Scrooge/Darkwing(DKT), Bumblebee(TRF) list will go on
         Story Outline: TBD
         Themes and Tone: TBD
 
@@ -45,7 +45,7 @@
         Accessibility Options: TBD
 
     Monetization (if applicable)
-        Pricing Model (Free-to-Play, Paid, etc.): $9.99
+        Pricing Model (Free-to-Play, Paid, etc.): FTP
         In-game Purchases / Microtransactions: NO.
         Ads (if relevant): NO.
 
@@ -53,5 +53,3 @@
         Development Phases
         Testing Phases
         Expected Launch Date
-
-Starting with these sections will give you a strong foundation. You can expand each section as the design evolves.
