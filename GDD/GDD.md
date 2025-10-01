@@ -13,7 +13,7 @@
 
     Story and World
         Setting and Backstory: Not fleshed out, something something wormhole something something invites something something bleh
-        Main Characters: Currently Kyojuro Rengoku(KNY), Tanjiro Kamado(KNY), Pioneer(STF), Paper Mario (PRM), list will go on
+        Main Characters: Currently Kyojuro Rengoku(KNY), Tanjiro Kamado(KNY), Pioneer(STF), Paper Mario (PRM), Lamb(CTL), Scrooge/Darkwing(DKT), Bumblebee(TSF) list will go on
         Story Outline: TBD
         Themes and Tone: TBD
 
