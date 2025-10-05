@@ -14,7 +14,7 @@ visible = false
 position = Vector2(31, 428)
 
 [node name="NPC" parent="." instance=ExtResource("3_sqsyl")]
-position = Vector2(883, 363)
+position = Vector2(1018, 456)
 
 [node name="Testplayer" parent="." instance=ExtResource("4_r6f3f")]
-position = Vector2(249, 380)
+position = Vector2(80, 466)
