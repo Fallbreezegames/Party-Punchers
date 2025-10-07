@@ -1,20 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp61jftgxt6l5"]
+[gd_scene load_steps=8 format=3 uid="uid://cp61jftgxt6l5"]
 
-[ext_resource type="PackedScene" uid="uid://d0cdhjkpq5xgi" path="res://Entities/Player 1.tscn" id="1_ch3k4"]
+[ext_resource type="Script" uid="uid://ojkyv6ap5rn3" path="res://Devmaps/MainScene.gd" id="1_6mxkm"]
 [ext_resource type="PackedScene" uid="uid://lnn6fpgy5dkm" path="res://Devmaps/Test field.tscn" id="1_gmuh0"]
 [ext_resource type="PackedScene" uid="uid://bqs5ov7w7fmm4" path="res://Entities/Dummy.tscn" id="3_sqsyl"]
 [ext_resource type="PackedScene" uid="uid://b2r0no7ya2a68" path="res://Entities/testplayer.tscn" id="4_r6f3f"]
+[ext_resource type="LabelSettings" uid="uid://cblsmarormv37" path="res://Devmaps/Text.tres" id="5_5hxdf"]
+[ext_resource type="Script" uid="uid://bvswtrh6u1hy7" path="res://Devmaps/HUD.gd" id="5_fo88g"]
+[ext_resource type="LabelSettings" uid="uid://dswyby07jipyi" path="res://Devmaps/Text2.tres" id="6_fo88g"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_6mxkm")
 
 [node name="Arena" parent="." instance=ExtResource("1_gmuh0")]
 
-[node name="Player" parent="." instance=ExtResource("1_ch3k4")]
-visible = false
-position = Vector2(31, 428)
-
-[node name="NPC" parent="." instance=ExtResource("3_sqsyl")]
+[node name="Player2" parent="." instance=ExtResource("3_sqsyl")]
 position = Vector2(1018, 456)
 
-[node name="Testplayer" parent="." instance=ExtResource("4_r6f3f")]
+[node name="Player1" parent="." instance=ExtResource("4_r6f3f")]
 position = Vector2(80, 466)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("5_fo88g")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1UI" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 519.0
+offset_right = 105.0
+offset_bottom = 608.0
+grow_vertical = 0
+
+[node name="Portrait" type="TextureRect" parent="HUD/Control/Player1UI"]
+layout_mode = 2
+
+[node name="PercentLabel" type="Label" parent="HUD/Control/Player1UI"]
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("5_5hxdf")
+vertical_alignment = 3
+
+[node name="Player2UI" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1008.0
+offset_top = 521.0
+offset_right = 1113.0
+offset_bottom = 608.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Portrait" type="TextureRect" parent="HUD/Control/Player2UI"]
+layout_mode = 2
+
+[node name="PercentLabel" type="Label" parent="HUD/Control/Player2UI"]
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("6_fo88g")
+vertical_alignment = 3

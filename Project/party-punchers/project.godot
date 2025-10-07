@@ -58,6 +58,7 @@ light_attack={
 2d_physics/layer_2="hitbox"
 2d_physics/layer_3="hurtbox"
 2d_physics/layer_4="shield"
+2d_physics/layer_5="layer 5"
 
 [rendering]
 

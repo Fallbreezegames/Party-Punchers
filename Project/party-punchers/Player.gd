@@ -1,24 +1,20 @@
 extends CharacterBody2D
 
 @export var speed = 150
-@export var health = 100
+@export var max_health := 100
+var health := max_health
 
-@onready var hitbox = $Hitbox/CollisionShape2D
-@onready var sprite = $Sprite2D
+@export var player_id := 1  # or 2, etc.
 
 var current_anim = ""
 
 var is_moving = true
 var is_attacking = false
 
+signal damaged(player_id: int, new_health: float)
+
 func _ready():
 	$AnimationPlayer.connect("animation_finished", Callable(self, "_on_animation_finished"))
-
-func update_facing(dir: int):
-	# dir is 1 for right, -1 for left
-	sprite.flip_h = dir == -1
-	hitbox.position.x = abs(hitbox.position.x) * dir
-
 
 func play_anim(anim_name):
 	if current_anim != anim_name:
@@ -60,3 +56,8 @@ func _process(_delta):
 			$Sprite2D.flip_h = velocity.x < 0
 		else:
 			play_anim("Idle")
+
+func take_damage(amount: float):
+	health = clamp(health - amount, 0, max_health)
+	emit_signal("damaged", player_id, health)
+	print("Player", player_id, "took", amount, "damage, now at", health)

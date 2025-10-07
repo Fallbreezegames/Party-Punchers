@@ -53,6 +53,7 @@
         Development Phases:
             Basic structure
             Health and Damage
+                Make health bars for Fight mode to differentiate from Smash mode
             UI/HUD
             More advanced movement
             Characters
